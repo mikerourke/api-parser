@@ -1,0 +1,496 @@
+notification
+
+GET /1/notifications/[idNotification]
+
+Required permissions: read
+Arguments
+display (optional)
+Default: false
+Valid Values:
+true
+false
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+unread
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+board (optional)
+Default: false
+Valid Values:
+true
+false
+board_fields (optional)
+Default: name
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+list (optional)
+Default: false
+Valid Values:
+true
+false
+card (optional)
+Default: false
+Valid Values:
+true
+false
+card_fields (optional)
+Default: name
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+organization (optional)
+Default: false
+Valid Values:
+true
+false
+organization_fields (optional)
+Default: displayName
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/notifications/[idNotification]/[field]
+
+Arguments
+field (required)
+Valid Values: One of:
+data
+date
+idMemberCreator
+type
+unread
+GET /1/notifications/[idNotification]/board
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/notifications/[idNotification]/board/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/notifications/[idNotification]/card
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/notifications/[idNotification]/card/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/notifications/[idNotification]/display
+
+Required permissions: read
+Arguments: None
+GET /1/notifications/[idNotification]/entities
+
+Required permissions: read
+Arguments: None
+GET /1/notifications/[idNotification]/list
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/notifications/[idNotification]/list/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/notifications/[idNotification]/member
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/notifications/[idNotification]/member/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/notifications/[idNotification]/memberCreator
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/notifications/[idNotification]/memberCreator/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/notifications/[idNotification]/organization
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+GET /1/notifications/[idNotification]/organization/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+PUT /1/notifications/[idNotification]
+
+Required permissions: read
+Arguments
+unread (optional)
+Valid Values:
+true
+false
+PUT /1/notifications/[idNotification]/unread
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values:
+true
+false
+POST /1/notifications/all/read
+
+Required permissions: write
+Arguments: None

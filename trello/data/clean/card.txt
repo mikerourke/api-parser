@@ -1,0 +1,1010 @@
+card
+GET /1/cards/[card id or shortlink]
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+actions_entities (optional)
+Default: false
+Valid Values:
+true
+false
+actions_display (optional)
+Default: false
+Valid Values:
+true
+false
+actions_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+action_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+action_memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+membersVoted (optional)
+Default: false
+Valid Values:
+true
+false
+memberVoted_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checkItemState_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idCheckItem
+state
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+checklist_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idBoard
+idCard
+name
+pos
+board (optional)
+Default: false
+Valid Values:
+true
+false
+board_fields (optional)
+Default: name,desc,descData,closed,idOrganization,pinned,url,prefs
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity - The datetime of the last activity on the card. Note: There are activities that update dateLastActivity that do not create a corresponding action. For instance, updating the name field of a checklist item on a card does not create an action but does update the card and board's dateLastActivity value.
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+list (optional)
+Default: false
+Valid Values:
+true
+false
+list_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+pluginData (optional)
+Default: false
+Valid Values:
+true
+false
+stickers (optional)
+Default: false
+Valid Values:
+true
+false
+sticker_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+image
+imageScaled
+imageUrl
+left
+rotate
+top
+zIndex
+fields (optional)
+Default: badges,checkItemStates,closed,dateLastActivity,desc,descData,due,email,idBoard,idChecklists,idLabels,idList,idMembers,idShort,idAttachmentCover,manualCoverAttachment,labels,name,pos,shortUrl,url
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity - The datetime of the last activity on the card. Note: There are activities that update dateLastActivity that do not create a corresponding action. For instance, updating the name field of a checklist item on a card does not create an action but does update the card and board's dateLastActivity value.
+desc
+descData
+due
+dueComplete
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/cards/[card id or shortlink]/[field]
+Arguments
+field (required)
+Valid Values: One of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+dueComplete
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/cards/[card id or shortlink]/actions
+A Card can have a large list of Actions, and the Trello API will only return up to 1,000 Actions at any time. Learn more about paging with the Trello API.
+Required permissions: read
+Arguments
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+display (optional)
+Default: false
+Valid Values:
+true
+false
+filter (optional)
+Default: commentCard,updateCard:idList
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+since (optional)
+Valid Values: A date, null or lastView
+before (optional)
+Valid Values: A date, or null
+idModels (optional)
+Valid Values: Only return actions related to these model ids
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/cards/[card id or shortlink]/attachments
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+filter (optional)
+Default: true
+Valid Values: A boolean value or "cover" for only card cover attachments
+GET /1/cards/[card id or shortlink]/attachments/[idAttachment]
+Required permissions: read
+Arguments
+idAttachment (required)
+Valid Values: The id of the attachment.
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+GET /1/cards/[card id or shortlink]/board
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/cards/[card id or shortlink]/board/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/cards/[card id or shortlink]/checkItemStates
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idCheckItem
+state
+GET /1/cards/[card id or shortlink]/checklists
+Required permissions: read
+Arguments
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+dueComplete
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+checkItems (optional)
+Default: all
+Valid Values: One of:
+all
+none
+checkItem_fields (optional)
+Default: name,nameData,pos,state
+Valid Values: all or a comma-separated list of:
+name
+nameData
+pos
+state
+type
+filter (optional)
+Default: all
+Valid Values: One of:
+all
+none
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idBoard
+idCard
+name
+pos
+GET /1/cards/[card id or shortlink]/checkItem/[idCheckItem]
+Required permissions: read
+Arguments
+fields (optional)
+Default: name,nameData,pos,state
+Valid Values: all or a comma-separated list of:
+name
+nameData
+pos
+state
+type
+idCheckItem (required)
+Valid Values: id of the checkitem to retrieve
+GET /1/cards/[card id or shortlink]/list
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/cards/[card id or shortlink]/list/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/cards/[card id or shortlink]/members
+Required permissions: read
+Arguments
+fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/cards/[card id or shortlink]/membersVoted
+Required permissions: read
+Arguments
+fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/cards/[card id or shortlink]/pluginData
+Required permissions: read
+Arguments: None
+GET /1/cards/[card id or shortlink]/stickers
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+image
+imageScaled
+imageUrl
+left
+rotate
+top
+zIndex
+GET /1/cards/[card id or shortlink]/stickers/[idSticker]
+Required permissions: read
+Arguments
+idSticker (required)
+Valid Values: The id of the sticker
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+image
+imageScaled
+imageUrl
+left
+rotate
+top
+zIndex
+PUT /1/cards/[card id or shortlink]
+Required permissions: read
+Arguments
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+closed (optional)
+Valid Values:
+true
+false
+idMembers (optional)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+idAttachmentCover (optional)
+Valid Values: Id of the image attachment of this card to use as its cover, or null for no cover
+idList (optional)
+Valid Values: id of the list the card should be moved to
+idLabels (optional)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+idBoard (optional)
+Valid Values: id of the board the card should be moved to
+pos (optional)
+Valid Values: A position. top, bottom, or a positive number.
+due (optional)
+Valid Values: A date, or null
+dueComplete (optional)
+Valid Values:
+true
+false
+subscribed (optional)
+Valid Values:
+true
+false
+PUT /1/cards/[card id or shortlink]/actions/[idAction]/comments
+Notes: This can only be done by the original author of the comment.
+Required permissions: read
+Arguments
+idAction (required)
+Valid Values: The id of the action.
+text (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/name
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist.
+idCheckItem (required)
+Valid Values: The id of the checkitem to modify.
+value (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/pos
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist.
+idCheckItem (required)
+Valid Values: The id of the checkitem to modify.
+value (required)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/state
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist.
+idCheckItem (required)
+Valid Values: The id of the checkitem to modify.
+value (required)
+Valid Values: One of:
+complete
+false
+incomplete
+true
+PUT /1/cards/[card id or shortlink]/checklist/[idChecklistCurrent]/checkItem/[idCheckItem]
+Required permissions: write
+Arguments
+idChecklistCurrent (required)
+Valid Values: The id of the checklist.
+idCheckItem (required)
+Valid Values: The id of the checkitem to modify.
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+state (optional)
+Valid Values: One of:
+complete
+false
+incomplete
+true
+idChecklist (optional)
+Valid Values: An id, or null
+pos (optional)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/cards/[card id or shortlink]/checkItem/[idCheckItem]
+Required permissions: write
+Arguments
+idCheckItem (required)
+Valid Values: The id of the checkitem to modify.
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+state (optional)
+Valid Values: One of:
+complete
+false
+incomplete
+true
+idChecklist (optional)
+Valid Values: An id, or null
+pos (optional)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/cards/[card id or shortlink]/closed
+Required permissions: write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/cards/[card id or shortlink]/desc
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/cards/[card id or shortlink]/due
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A date, or null
+To ensure that time zones are handled properly, you should pass in an ISO-formatted date string.
+PUT /1/cards/[card id or shortlink]/dueComplete
+Required permissions: write
+Arguments
+value (required)
+Valid Values: true or false
+PUT /1/cards/[card id or shortlink]/idAttachmentCover
+Required permissions: write
+Arguments
+value (required)
+Valid Values: Id of the image attachment of this card to use as its cover, or an empty string for no cover
+PUT /1/cards/[card id or shortlink]/idBoard
+Required permissions: write
+Arguments
+value (required)
+Valid Values: id of the board the card should be moved to
+idList (optional)
+Valid Values: id of the list that the card should be moved to on the new board
+PUT /1/cards/[card id or shortlink]/idList
+Required permissions: write
+Arguments
+value (required)
+Valid Values: id of the list the card should be moved to
+PUT /1/cards/[card id or shortlink]/idMembers
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+PUT /1/cards/[card id or shortlink]/name
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/cards/[card id or shortlink]/pos
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/cards/[card id or shortlink]/stickers/[idSticker]
+Required permissions: write
+Arguments
+idSticker (required)
+Valid Values: The id of the sticker to modify
+top (optional)
+left (optional)
+zIndex (optional)
+Valid Values: Valid Z values for stickers, must be an integer
+rotate (optional)
+PUT /1/cards/[card id or shortlink]/subscribed
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+POST /1/cards
+Required permissions: write
+Arguments
+name (optional)
+Valid Values: The name of the new card. It isn't required if the name is being copied from provided by a URL, file or card that is being copied.
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+pos (optional)
+Default: bottom
+Valid Values: A position. top, bottom, or a positive number.
+due (optional)
+Valid Values: A date, or null
+dueComplete (optional)
+Valid Values: true or false
+idList (required)
+Valid Values: id of the list that the card should be added to
+idMembers (optional)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+idLabels (optional)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+urlSource (optional)
+fileSource (optional)
+Valid Values: A file
+idCardSource (optional)
+Valid Values: The id of the card to copy into a new card.
+keepFromSource (optional)
+Default: all
+Valid Values: A string containing one or more of the following values, separated by commas: "attachments", "checklists", "comments", "due", "labels", "members", "stickers"
+Note: Checklist items are always unchecked and due dates are never marked as complete regardless of their corresponding values in the source card.
+POST /1/cards/[card id or shortlink]/actions/comments
+Required permissions: comments
+Arguments
+text (required)
+Valid Values: a string with a length from 1 to 16384
+POST /1/cards/[card id or shortlink]/attachments
+The attachments endpoint should be used to add an attachment to a card. Cards are limited to having 100 attachments. You can only add a single attachment to a card at a time.
+Required permissions: write
+Arguments
+file (optional)
+Valid Values: A file
+url (optional)
+name (optional)
+Valid Values: a string with a length from 0 to 256
+mimeType (optional)
+Valid Values: a string with a length from 0 to 256
+Bash:
+Errors
+Unprocessable entity (422): This error occurs when an attempt is made to add another attachment to card that already has 100 attachments.
+POST /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist.
+name (required)
+Valid Values: a string with a length from 1 to 16384
+pos (optional)
+Default: bottom
+Valid Values: A position. top, bottom, or a positive number.
+POST /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/convertToCard
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist.
+idCheckItem (required)
+Valid Values: The id of the checkitem to modify.
+POST /1/cards/[card id or shortlink]/checklists
+Required permissions: write
+Arguments
+value (optional)
+Valid Values: The id of the checklist to add to the card, or null to create a new one.
+name (optional)
+Valid Values: a string with a length from 0 to 16384
+idChecklistSource (optional)
+Valid Values: The id of the source checklist to copy into a new checklist.
+POST /1/cards/[card id or shortlink]/idLabels
+Required permissions: write
+Arguments
+value (required)
+Valid Values: The id of the label to add
+POST /1/cards/[card id or shortlink]/idMembers
+Required permissions: write
+Arguments
+value (required)
+Valid Values: The id of the member to add to the card
+POST /1/cards/[card id or shortlink]/labels
+Required permissions: write
+Arguments
+color (required)
+Valid Values: A valid label color or null
+name (optional)
+Valid Values: a string with a length from 0 to 16384
+POST /1/cards/[card id or shortlink]/markAssociatedNotificationsRead
+Required permissions: read
+Arguments: None
+POST /1/cards/[card id or shortlink]/membersVoted
+Required permissions: voting
+Arguments
+value (required)
+Valid Values: The id of the member to vote 'yes' on the card
+POST /1/cards/[card id or shortlink]/stickers
+Required permissions: write
+Arguments
+image (required)
+Valid Values: a string with a length from 0 to 16384
+top (required)
+left (required)
+zIndex (required)
+Valid Values: Valid Z values for stickers, must be an integer
+rotate (optional)
+Default: 0
+DELETE /1/cards/[card id or shortlink]
+Required permissions: write
+Arguments: None
+DELETE /1/cards/[card id or shortlink]/actions/[idAction]/comments
+Notes: This can only be done by the original author of the comment, or someone with higher permissions than the original author.
+Required permissions: comments
+Arguments
+idAction (required)
+Valid Values: The id of the action.
+DELETE /1/cards/[card id or shortlink]/attachments/[idAttachment]
+Required permissions: write
+Arguments
+idAttachment (required)
+Valid Values: The id of the attachment to remove from the card.
+DELETE /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist.
+idCheckItem (required)
+Valid Values: the id of the check item to remove
+DELETE /1/cards/[card id or shortlink]/checkItem/[idCheckItem]
+Required permissions: write
+Arguments
+idCheckItem (required)
+Valid Values: the id of the check item to remove
+DELETE /1/cards/[card id or shortlink]/checklists/[idChecklist]
+Required permissions: write
+Arguments
+idChecklist (required)
+Valid Values: The id of the checklist to remove from the card
+DELETE /1/cards/[card id or shortlink]/idLabels/[idLabel]
+Required permissions: write
+Arguments
+idLabel (required)
+Valid Values: The id of the label to delete
+DELETE /1/cards/[card id or shortlink]/idMembers/[idMember]
+Required permissions: write
+Arguments
+idMember (required)
+Valid Values: The id of the member to remove from the card
+DELETE /1/cards/[card id or shortlink]/membersVoted/[idMember]
+Required permissions: voting
+Arguments
+idMember (required)
+Valid Values: The id of the member whose vote to rescind
+DELETE /1/cards/[card id or shortlink]/stickers/[idSticker]
+Required permissions: write
+Arguments
+idSticker (required)
+Valid Values: The id of the sticker to remove

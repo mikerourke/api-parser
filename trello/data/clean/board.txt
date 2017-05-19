@@ -1,0 +1,1846 @@
+board
+GET /1/boards/[board_id]
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+actions_entities (optional)
+Default: false
+Valid Values:
+true
+false
+actions_display (optional)
+Default: false
+Valid Values:
+true
+false
+actions_format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+actions_since (optional)
+Valid Values: A date, null or lastView
+actions_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+action_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+action_member (optional)
+Default: true
+Valid Values:
+true
+false
+action_member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+action_memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+action_memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+card_attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+card_attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+card_checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+card_pluginData (optional)
+Default: false
+Valid Values: One of:
+true
+false
+card_stickers (optional)
+Default: false
+Valid Values:
+true
+false
+boardStars (optional)
+Default: none
+Valid Values: One of:
+mine
+none
+labels (optional)
+Default: none
+Valid Values: One of:
+all
+none
+label_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+color
+idBoard
+name
+uses
+labels_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+lists (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+list_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+memberships (optional)
+Default: none
+Valid Values: all or a comma-separated list of:
+active
+admin
+deactivated
+me
+normal
+memberships_member (optional)
+Default: false
+Valid Values:
+true
+false
+memberships_member_fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+members (optional)
+Default: none
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+member_fields (optional)
+Default: avatarHash,initials,fullName,username,confirmed
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+membersInvited (optional)
+Default: none
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+membersInvited_fields (optional)
+Default: avatarHash,initials,fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+pluginData (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+checklist_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idBoard
+idCard
+name
+pos
+organization (optional)
+Default: false
+Valid Values:
+true
+false
+organization_fields (optional)
+Default: name,displayName
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+organization_memberships (optional)
+Default: none
+Valid Values: all or a comma-separated list of:
+active
+admin
+deactivated
+me
+normal
+organization_pluginData (optional)
+Default: false
+Valid Values:
+true
+false
+myPrefs (optional)
+Default: false
+Valid Values:
+true
+false
+tags (optional)
+Also known as collections, tags refer to the collection(s) that a Board belongs to.
+Default: false
+Valid Values:
+true
+false
+fields (optional)
+Default: name,desc,descData,closed,idOrganization,pinned,url,shortUrl,prefs,labelNames
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+    ...
+  ]
+GET /1/boards/[board_id]/[field]
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/boards/[board_id]/actions
+Required permissions: read
+Arguments
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+display (optional)
+Default: false
+Valid Values:
+true
+false
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+since (optional)
+Valid Values: A date, null or lastView
+before (optional)
+Valid Values: A date, or null
+page (optional)
+Default: 0
+Valid Values: Page * limit must be less than 1000
+idModels (optional)
+Valid Values: Only return actions related to these model ids
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/boards/[board_id]/boardStars
+Required permissions: read
+Arguments
+filter (optional)
+Default: mine
+Valid Values: One of:
+mine
+none
+GET /1/boards/[board_id]/cards
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+stickers (optional)
+Default: false
+Valid Values:
+true
+false
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+limit (optional)
+Valid Values: a number from 1 to 1000
+since (optional)
+Valid Values: A date, or null
+before (optional)
+Valid Values: A date, or null
+filter (optional)
+Default: visible
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+  ...
+GET /1/boards/[board_id]/cards/[filter]
+Arguments
+filter (required)
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+GET /1/boards/[board_id]/cards/[idCard]
+Required permissions: read
+Arguments
+idCard (required)
+Valid Values: The id (or short id) of a card on the board
+attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+actions_entities (optional)
+Default: false
+Valid Values:
+true
+false
+actions_display (optional)
+Default: false
+Valid Values:
+true
+false
+actions_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+action_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+action_memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,initials,fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: true
+Valid Values:
+true
+false
+checkItemState_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idCheckItem
+state
+labels (optional)
+Default: true
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+checklist_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idBoard
+idCard
+name
+pos
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/boards/[board_id]/checklists
+Required permissions: read
+Arguments
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+checkItems (optional)
+Default: all
+Valid Values: One of:
+all
+none
+checkItem_fields (optional)
+Default: name,nameData,pos,state
+Valid Values: all or a comma-separated list of:
+name
+nameData
+pos
+state
+type
+filter (optional)
+Default: all
+Valid Values: One of:
+all
+none
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idBoard
+idCard
+name
+pos
+GET /1/boards/[board_id]/deltas
+Required permissions: read
+Arguments
+tags (required)
+Valid Values: A valid tag for subscribing
+ixLastUpdate (required)
+Valid Values: a number from -1 to Infinity
+GET /1/boards/[board_id]/tags
+Required permissions: read
+Returns a list of idTags that represent the collections that the board has been added to.
+Warning: This is an experimental resource and may change at any time without notice.
+GET /1/boards/[board_id]/labels
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+color
+idBoard
+name
+uses
+limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+GET /1/boards/[board_id]/labels/[idLabel]
+Required permissions: read
+Arguments
+idLabel (required)
+Valid Values: The id of the label.
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+color
+idBoard
+name
+uses
+GET /1/boards/[board_id]/lists
+Required permissions: read
+Arguments
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+filter (optional)
+Default: open
+Valid Values: One of:
+all
+closed
+none
+open
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/boards/[board_id]/lists/[filter]
+Arguments
+filter (required)
+Valid Values: One of:
+all
+closed
+none
+open
+GET /1/boards/[board_id]/members
+Required permissions: read
+Arguments
+filter (optional)
+Default: all
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+activity (optional)
+Default: false
+Valid Values: true or false; works for premium organizations only.
+GET /1/boards/[board_id]/members/[filter]
+Arguments
+filter (required)
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+GET /1/boards/[board_id]/members/[idMember]/cards
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+board (optional)
+Default: false
+Valid Values:
+true
+false
+board_fields (optional)
+Default: name,desc,closed,idOrganization,pinned,url,prefs
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+list (optional)
+Default: false
+Valid Values:
+true
+false
+list_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+filter (optional)
+Default: visible
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+idMember (required)
+Valid Values: An id, username, or organization name
+GET /1/boards/[board_id]/membersInvited
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/boards/[board_id]/membersInvited/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/boards/[board_id]/memberships
+Required permissions: read
+Arguments
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+active
+admin
+deactivated
+me
+normal
+member (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/boards/[board_id]/memberships/[idMembership]
+Required permissions: read
+Arguments
+idMembership (required)
+Valid Values: A membership document id
+member (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/boards/[board_id]/myPrefs
+Required permissions: read
+Arguments: None
+GET /1/boards/[board_id]/organization
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+GET /1/boards/[board_id]/organization/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+GET /1/boards/[board_id]/pluginData
+Required permissions: read
+Arguments: None
+PUT /1/boards/[board_id]
+Required permissions: read
+Arguments
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+closed (optional)
+Valid Values:
+true
+false
+subscribed (optional)
+Valid Values:
+true
+false
+idOrganization (optional)
+Valid Values: a string with a length from 0 to 16384
+prefs/permissionLevel (optional)
+Valid Values: One of:
+org
+private
+public
+prefs/selfJoin (optional)
+Valid Values:
+true
+false
+prefs/cardCovers (optional)
+Valid Values:
+true
+false
+prefs/invitations (optional)
+Valid Values: One of:
+admins
+members
+prefs/voting (optional)
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+prefs/comments (optional)
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+prefs/background (optional)
+Valid Values: A standard background name, or the id of a custom background
+prefs/cardAging (optional)
+Valid Values: One of:
+pirate
+regular
+prefs/calendarFeedEnabled (optional)
+Valid Values:
+true
+false
+labelNames/green (optional)
+Valid Values: a string with a length from 0 to 16384
+labelNames/yellow (optional)
+Valid Values: a string with a length from 0 to 16384
+labelNames/orange (optional)
+Valid Values: a string with a length from 0 to 16384
+labelNames/red (optional)
+Valid Values: a string with a length from 0 to 16384
+labelNames/purple (optional)
+Valid Values: a string with a length from 0 to 16384
+labelNames/blue (optional)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/closed
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/desc
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/idOrganization
+Required permissions: read
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/labelNames/blue
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/labelNames/green
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/labelNames/orange
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/labelNames/purple
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/labelNames/red
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/labelNames/yellow
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/boards/[board_id]/members
+Required permissions: write
+Arguments
+email (required)
+Valid Values: An email address
+fullName
+Valid Values: A string with a length of at least 1. Cannot begin or end with a space.
+type (optional)
+Default: normal
+Valid Values: One of:
+admin
+normal
+observer
+PUT /1/boards/[board_id]/members/[idMember]
+Required permissions: write
+Arguments
+idMember (required)
+Valid Values: An id, username, or organization name
+type (required)
+Valid Values: One of:
+admin
+normal
+observer
+PUT /1/boards/[board_id]/memberships/[idMembership]
+Required permissions: write
+Arguments
+idMembership (required)
+Valid Values: An id
+type (required)
+Valid Values: One of:
+admin
+normal
+observer
+member_fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+PUT /1/boards/[board_id]/myPrefs/emailPosition
+Required permissions: write
+Arguments
+value (required)
+Valid Values: One of:
+bottom
+top
+PUT /1/boards/[board_id]/myPrefs/idEmailList
+Required permissions: write
+Arguments
+value (required)
+Valid Values: An id
+PUT /1/boards/[board_id]/myPrefs/showListGuide
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/myPrefs/showSidebar
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/myPrefs/showSidebarActivity
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/myPrefs/showSidebarBoardActions
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/myPrefs/showSidebarMembers
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/name
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/boards/[board_id]/prefs/background
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A standard background name, or the id of a custom background
+PUT /1/boards/[board_id]/prefs/calendarFeedEnabled
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/prefs/cardAging
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values: One of:
+pirate
+regular
+PUT /1/boards/[board_id]/prefs/cardCovers
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/prefs/comments
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+PUT /1/boards/[board_id]/prefs/invitations
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values: One of:
+admins
+members
+PUT /1/boards/[board_id]/prefs/permissionLevel
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values: One of:
+org
+private
+public
+PUT /1/boards/[board_id]/prefs/selfJoin
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/boards/[board_id]/prefs/voting
+Required permissions: own, write
+Arguments
+value (required)
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+PUT /1/boards/[board_id]/subscribed
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+POST /1/boards
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+defaultLabels (optional)
+Default: true
+Valid Values:
+true
+false
+defaultLists (optional)
+Default: true
+Valid Values:
+true
+false
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+idOrganization (optional)
+Valid Values: The id or name of the organization to add the board to.
+idBoardSource (optional)
+Valid Values: The id of the board to copy into the new board
+keepFromSource (optional)
+Default: all
+Valid Values: Components of the source board to copy.
+powerUps (optional)
+Valid Values: all or a comma-separated list of:
+calendar
+cardAging
+recap
+voting
+prefs_permissionLevel (optional)
+Default: private
+Valid Values: One of:
+org
+private
+public
+prefs_voting (optional)
+Default: disabled
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+prefs_comments (optional)
+Default: members
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+prefs_invitations (optional)
+Default: members
+Valid Values: One of:
+admins
+members
+prefs_selfJoin (optional)
+Default: true
+Valid Values:
+true
+false
+prefs_cardCovers (optional)
+Default: true
+Valid Values:
+true
+false
+prefs_background (optional)
+Default: blue
+Valid Values: a string with a length from 0 to 16384
+prefs_cardAging (optional)
+Default: regular
+Valid Values: One of:
+pirate
+regular
+POST /1/boards/[board_id]/calendarKey/generate
+Required permissions: read
+Arguments: None
+POST /1/boards/[board_id]/checklists
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+POST /1/boards/[board_id]/emailKey/generate
+Required permissions: write
+Arguments: None
+POST /1/boards/[board_id]/tags
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string containing the id of a tag from the organization to which this board belongs.
+Warning: This is an experimental resource and may change at any time without notice.
+POST /1/boards/[board_id]/labels
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 0 to 16384
+color (required)
+Valid Values: A valid label color or null
+POST /1/boards/[board_id]/lists
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+pos (optional)
+Default: top
+Valid Values: A position. top, bottom, or a positive number.
+POST /1/boards/[board_id]/markAsViewed
+Required permissions: read
+Arguments: None
+POST /1/boards/[board_id]/powerUps
+Required permissions: write
+Arguments
+value (required)
+Valid Values: One of:
+calendar
+cardAging
+recap
+voting
+DELETE /1/boards/[board_id]/members/[idMember]
+Required permissions: write
+Arguments
+idMember (required)
+Valid Values: An id, username, or organization name
+DELETE /1/boards/[board_id]/powerUps/[powerUp]
+Required permissions: write
+Arguments
+powerUp (required)
+Valid Values: One of:
+calendar
+cardAging
+recap
+voting

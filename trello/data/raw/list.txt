@@ -1,0 +1,611 @@
+list
+
+GET /1/lists/[idList]
+
+Required permissions: read
+Arguments
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+board (optional)
+Default: false
+Valid Values:
+true
+false
+board_fields (optional)
+Default: name,desc,descData,closed,idOrganization,pinned,url,prefs
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+fields (optional)
+Default: name,closed,idBoard,pos
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+Examples
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a?fields=name&cards=open&card_fields=name&key=[application_key]&token=[optional_auth_token]
+{
+    "id": "4eea4ffc91e31d174600004a",
+    "name": "To Do Soon",
+    "cards": [{
+        "id": "4eea503791e31d1746000080",
+        "name": "Finish my awesome application"
+    }]
+}
+GET /1/lists/[idList]/[field]
+
+Arguments
+field (required)
+Valid Values: One of:
+closed
+idBoard
+name
+pos
+subscribed
+Examples
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/closed?key=[application_key]&token=[optional_auth_token]
+{
+    "_value": false
+}
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/idBoard?key=[application_key]&token=[optional_auth_token]
+{
+    "_value": "4eea4ffc91e31d1746000046"
+}
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/name?key=[application_key]&token=[optional_auth_token]
+{
+    "_value": "To Do Soon"
+}
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/pos?key=[application_key]&token=[optional_auth_token]
+{
+    "_value": 16384
+}
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/subscribed?key=[application_key]&token=[optional_auth_token]
+{
+    "_value": null
+}
+GET /1/lists/[idList]/actions
+
+Required permissions: read
+Arguments
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+display (optional)
+Default: false
+Valid Values:
+true
+false
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+commentCard
+convertToCardFromCheckItem
+copyCard
+emailCard
+createCard
+createList
+deleteCard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateList
+updateList:closed
+updateList:name
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+since (optional)
+Valid Values: A date, null or lastView
+before (optional)
+Valid Values: A date, or null
+page (optional)
+Default: 0
+Valid Values: Page * limit must be less than 1000
+idModels (optional)
+Valid Values: Only return actions related to these model ids
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+Examples
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/actions?key=[application_key]&token=[optional_auth_token]
+[[{
+    "id": "4efe314cc72846af4e00008a",
+    "data": {
+        "list": {
+            "id": "4eea4ffc91e31d174600004a",
+            "name": "To Do Soon"
+        },
+        "board": {
+            "id": "4eea4ffc91e31d1746000046",
+            "name": "Example Board"
+        },
+        "old": {
+            "name": "To Do Later"
+        }
+    },
+    "date": "2011-12-30T21:46:52.874Z",
+    "idMemberCreator": "4ee7deffe582acdec80000ac",
+    "type": "updateList",
+    "memberCreator": {
+        "id": "4ee7deffe582acdec80000ac",
+        "avatarHash": null,
+        "fullName": "Joe Tester",
+        "initials": "JT",
+        "username": "joetester"
+    }
+}, {
+    "id": "4efe3147c72846af4e00006d",
+    "data": {
+        "list": {
+            "id": "4eea4ffc91e31d174600004a",
+            "name": "To Do Later"
+        },
+        "board": {
+            "id": "4eea4ffc91e31d1746000046",
+            "name": "Example Board"
+        },
+        "old": {
+            "name": "To Do Eventually"
+        }
+    },
+    "date": "2011-12-30T21:46:47.843Z",
+    "idMemberCreator": "4ee7deffe582acdec80000ac",
+    "type": "updateList",
+    "memberCreator": {
+        "id": "4ee7deffe582acdec80000ac",
+        "avatarHash": null,
+        "fullName": "Joe Tester",
+        "initials": "JT",
+        "username": "joetester"
+    }
+}]
+GET /1/lists/[idList]/board
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/lists/[idList]/board/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/lists/[idList]/cards
+
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+attachments (optional)
+Default: false
+Valid Values: A boolean value or &quot;cover&quot; for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+stickers (optional)
+Default: false
+Valid Values:
+true
+false
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+limit (optional)
+Valid Values: a number from 1 to 1000
+since (optional)
+Valid Values: A date, or null
+before (optional)
+Valid Values: A date, or null
+filter (optional)
+Default: open
+Valid Values: One of:
+all
+closed
+none
+open
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+Examples
+https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/cards?key=[application_key]&token=[optional_auth_token]
+[{
+    "id": "4eea503791e31d1746000080",
+    "badges": {
+        "votes": 0,
+        "viewingMemberVoted": false,
+        "subscribed": false,
+        "fogbugz": "",
+        "checkItems": 0,
+        "checkItemsChecked": 0,
+        "comments": 0,
+        "attachments": 0,
+        "description": false,
+        "due": null
+    },
+    "checkItemStates": [],
+    "closed": false,
+    "dateLastActivity": "2011-12-15T19:53:27.228Z",
+    "desc": "",
+    "descData": null,
+    "due": null,
+    "email": null,
+    "idAttachmentCover": null,
+    "idBoard": "4eea4ffc91e31d1746000046",
+    "idChecklists": [],
+    "idLabels": [],
+    "idList": "4eea4ffc91e31d174600004a",
+    "idMembers": [],
+    "idMembersVoted": [],
+    "idShort": 3,
+    "labels": [],
+    "manualCoverAttachment": false,
+    "name": "Finish my awesome application",
+    "pos": 65536,
+    "shortLink": "XlG8S7ll",
+    "shortUrl": "https://trello.com/c/XlG8S7ll",
+    "subscribed": null,
+    "url": "https://trello.com/c/XlG8S7ll/3-finish-my-awesome-application"
+}]
+GET /1/lists/[idList]/cards/[filter]
+
+Arguments
+filter (required)
+Valid Values: One of:
+all
+closed
+none
+open
+PUT /1/lists/[idList]
+
+Required permissions: read
+Arguments
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+closed (optional)
+Valid Values:
+true
+false
+idBoard (optional)
+Valid Values: id of the board the list should be moved to
+pos (optional)
+Valid Values: A position. top, bottom, or a positive number.
+subscribed (optional)
+Valid Values:
+true
+false
+PUT /1/lists/[idList]/closed
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/lists/[idList]/idBoard
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: id of the board the list should be moved to
+pos (optional)
+Default: top
+Valid Values: position of the list on the new board
+PUT /1/lists/[idList]/name
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/lists/[idList]/pos
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/lists/[idList]/subscribed
+
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+POST /1/lists
+
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+idBoard (required)
+Valid Values: id of the board that the list should be added to
+idListSource (optional)
+Valid Values: The id of the list to copy into a new list.
+pos (optional)
+Default: top
+Valid Values: A position. top, bottom, or a positive number.
+POST /1/lists/[idList]/archiveAllCards
+
+Required permissions: write
+Arguments: None
+POST /1/lists/[idList]/cards
+
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+labels (optional)
+Valid Values: all or a comma-separated list of:
+blue
+green
+orange
+purple
+red
+yellow
+idMembers (optional)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+due (required)
+Valid Values: A date, or null
+POST /1/lists/[idList]/moveAllCards
+
+Required permissions: write
+Arguments
+idBoard (required)
+Valid Values: id of the board that the cards should be moved to
+idList (required)
+Valid Values: id of the list that the cards should be moved to

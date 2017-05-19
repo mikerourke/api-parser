@@ -1,0 +1,121 @@
+token
+GET /1/tokens/[token]
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+dateCreated
+dateExpires
+idMember
+identifier
+permissions
+webhooks (optional)
+Default: false
+Valid Values:
+true
+false
+GET /1/tokens/[token]/[field]
+Arguments
+field (required)
+Valid Values: One of:
+dateCreated
+dateExpires
+idMember
+identifier
+permissions
+GET /1/tokens/[token]/member
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/tokens/[token]/member/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/tokens/[token]/webhooks
+Required permissions: read
+Arguments: None
+GET /1/tokens/[token]/webhooks/[idWebhook]
+Required permissions: read
+Arguments
+idWebhook (required)
+Valid Values: The id of the webhook
+PUT /1/tokens/[token]/webhooks
+Required permissions: read
+Arguments
+description (optional)
+Valid Values: a string with a length from 0 to 16384
+callbackURL (required)
+Valid Values: A valid URL that is reachable with a HEAD request
+idModel (required)
+Valid Values: id of the model to be monitored
+POST /1/tokens/[token]/webhooks
+Required permissions: read
+Arguments
+description (optional)
+Valid Values: a string with a length from 0 to 16384
+callbackURL (required)
+Valid Values: A valid URL that is reachable with a HEAD request
+idModel (required)
+Valid Values: id of the model to be monitored
+DELETE /1/tokens/[token]
+Required permissions: write
+Arguments: None
+DELETE /1/tokens/[token]/webhooks/[idWebhook]
+Required permissions: read
+Arguments
+idWebhook (required)
+Valid Values: The id of the webhook

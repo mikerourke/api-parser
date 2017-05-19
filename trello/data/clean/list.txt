@@ -1,0 +1,469 @@
+list
+GET /1/lists/[idList]
+Required permissions: read
+Arguments
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+board (optional)
+Default: false
+Valid Values:
+true
+false
+board_fields (optional)
+Default: name,desc,descData,closed,idOrganization,pinned,url,prefs
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+fields (optional)
+Default: name,closed,idBoard,pos
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/lists/[idList]/[field]
+Arguments
+field (required)
+Valid Values: One of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/lists/[idList]/actions
+Required permissions: read
+Arguments
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+display (optional)
+Default: false
+Valid Values:
+true
+false
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+commentCard
+convertToCardFromCheckItem
+copyCard
+emailCard
+createCard
+createList
+deleteCard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateList
+updateList:closed
+updateList:name
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+since (optional)
+Valid Values: A date, null or lastView
+before (optional)
+Valid Values: A date, or null
+page (optional)
+Default: 0
+Valid Values: Page * limit must be less than 1000
+idModels (optional)
+Valid Values: Only return actions related to these model ids
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/lists/[idList]/board
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/lists/[idList]/board/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/lists/[idList]/cards
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+attachments (optional)
+Default: false
+Valid Values: A boolean value or &quot;cover&quot; for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+stickers (optional)
+Default: false
+Valid Values:
+true
+false
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+limit (optional)
+Valid Values: a number from 1 to 1000
+since (optional)
+Valid Values: A date, or null
+before (optional)
+Valid Values: A date, or null
+filter (optional)
+Default: open
+Valid Values: One of:
+all
+closed
+none
+open
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/lists/[idList]/cards/[filter]
+Arguments
+filter (required)
+Valid Values: One of:
+all
+closed
+none
+open
+PUT /1/lists/[idList]
+Required permissions: read
+Arguments
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+closed (optional)
+Valid Values:
+true
+false
+idBoard (optional)
+Valid Values: id of the board the list should be moved to
+pos (optional)
+Valid Values: A position. top, bottom, or a positive number.
+subscribed (optional)
+Valid Values:
+true
+false
+PUT /1/lists/[idList]/closed
+Required permissions: write
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/lists/[idList]/idBoard
+Required permissions: write
+Arguments
+value (required)
+Valid Values: id of the board the list should be moved to
+pos (optional)
+Default: top
+Valid Values: position of the list on the new board
+PUT /1/lists/[idList]/name
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/lists/[idList]/pos
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/lists/[idList]/subscribed
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+POST /1/lists
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+idBoard (required)
+Valid Values: id of the board that the list should be added to
+idListSource (optional)
+Valid Values: The id of the list to copy into a new list.
+pos (optional)
+Default: top
+Valid Values: A position. top, bottom, or a positive number.
+POST /1/lists/[idList]/archiveAllCards
+Required permissions: write
+Arguments: None
+POST /1/lists/[idList]/cards
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+labels (optional)
+Valid Values: all or a comma-separated list of:
+blue
+green
+orange
+purple
+red
+yellow
+idMembers (optional)
+Valid Values: A comma-separated list of objectIds, 24-character hex strings
+due (required)
+Valid Values: A date, or null
+POST /1/lists/[idList]/moveAllCards
+Required permissions: write
+Arguments
+idBoard (required)
+Valid Values: id of the board that the cards should be moved to
+idList (required)
+Valid Values: id of the list that the cards should be moved to

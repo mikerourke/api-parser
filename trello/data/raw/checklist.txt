@@ -1,0 +1,413 @@
+checklist
+
+GET /1/checklists/[idChecklist]
+
+Required permissions: read
+Arguments
+cards (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+card_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+checkItems (optional)
+Default: all
+Valid Values: One of:
+all
+none
+checkItem_fields (optional)
+Default: name,nameData,pos,state
+Valid Values: all or a comma-separated list of:
+name
+nameData
+pos
+state
+type
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+idBoard
+idCard
+name
+pos
+Examples
+https://api.trello.com/1/checklists/4eea6ae1a5da7f5a49000092?fields=name&cards=all&card_fields=name&key=[application_key]&token=[optional_auth_token]
+{
+    "id": "4eea6ae1a5da7f5a49000092",
+    "name": "API Checklist",
+    "checkItems": [{
+        "state": "complete",
+        "id": "4eea6aeda5da7f5a490000b9",
+        "name": "See if there is a call",
+        "nameData": null,
+        "pos": 16751
+    }, {
+        "state": "incomplete",
+        "id": "4eea6af1a5da7f5a490000cc",
+        "name": "Figure out how to use the call",
+        "nameData": null,
+        "pos": 33544
+    }, {
+        "state": "incomplete",
+        "id": "4eea6af4a5da7f5a490000e1",
+        "name": "Add it to the code",
+        "nameData": null,
+        "pos": 50647
+    }],
+    "cards": [{
+        "id": "4eea522c91e31d174600027e",
+        "name": "Figure out how to read a user's board list"
+    }]
+}
+GET /1/checklists/[idChecklist]/[field]
+
+Arguments
+field (required)
+Valid Values: One of:
+idBoard
+idCard
+name
+pos
+GET /1/checklists/[idChecklist]/board
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/checklists/[idChecklist]/board/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/checklists/[idChecklist]/cards
+
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+stickers (optional)
+Default: false
+Valid Values:
+true
+false
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+limit (optional)
+Valid Values: a number from 1 to 1000
+since (optional)
+Valid Values: A date, or null
+before (optional)
+Valid Values: A date, or null
+filter (optional)
+Default: open
+Valid Values: One of:
+all
+closed
+none
+open
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/checklists/[idChecklist]/cards/[filter]
+
+Arguments
+filter (required)
+Valid Values: One of:
+all
+closed
+none
+open
+GET /1/checklists/[idChecklist]/checkItems
+
+Required permissions: read
+Arguments
+filter (optional)
+Default: all
+Valid Values: One of:
+all
+none
+fields (optional)
+Default: name,nameData,pos,state
+Valid Values: all or a comma-separated list of:
+name
+nameData
+pos
+state
+type
+Examples
+https://api.trello.com/1/checklists/4eea6ae1a5da7f5a49000092/checkItems?key=[application_key]&token=[optional_auth_token]
+[{
+    "state": "complete",
+    "id": "4eea6aeda5da7f5a490000b9",
+    "name": "See if there is a call",
+    "nameData": null,
+    "pos": 16751
+}, {
+    "state": "incomplete",
+    "id": "4eea6af1a5da7f5a490000cc",
+    "name": "Figure out how to use the call",
+    "nameData": null,
+    "pos": 33544
+}, {
+    "state": "incomplete",
+    "id": "4eea6af4a5da7f5a490000e1",
+    "name": "Add it to the code",
+    "nameData": null,
+    "pos": 50647
+}]
+GET /1/checklists/[idChecklist]/checkItems/[idCheckItem]
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: name,nameData,pos,state
+Valid Values: all or a comma-separated list of:
+name
+nameData
+pos
+state
+type
+idCheckItem (required)
+Valid Values: id of the checkitem to retrieve
+PUT /1/checklists/[idChecklist]
+
+Required permissions: read
+Arguments
+name (optional)
+Valid Values: a string with a length from 1 to 16384
+pos (optional)
+Valid Values: A position. top, bottom, or a positive number.
+PUT /1/checklists/[idChecklist]/name
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+PUT /1/checklists/[idChecklist]/pos
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A position. top, bottom, or a positive number.
+POST /1/checklists
+
+Required permissions: write
+Arguments
+idCard (required)
+Valid Values: id of the card that the checklist should be added to
+name (optional)
+Valid Values: a string with a length from 0 to 16384
+pos (optional)
+Default: bottom
+Valid Values: A position. top, bottom, or a positive number.
+idChecklistSource (optional)
+Valid Values: The id of the source checklist to copy into a new checklist.
+POST /1/checklists/[idChecklist]/checkItems
+
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 1 to 16384
+pos (optional)
+Default: bottom
+Valid Values: A position. top, bottom, or a positive number.
+checked (optional)
+Default: false
+Valid Values:
+true
+false
+DELETE /1/checklists/[idChecklist]
+
+Required permissions: write
+Arguments: None
+DELETE /1/checklists/[idChecklist]/checkItems/[idCheckItem]
+
+Required permissions: write
+Arguments
+idCheckItem (required)
+Valid Values: the id of the check item to remove

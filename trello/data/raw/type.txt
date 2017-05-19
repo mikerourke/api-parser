@@ -1,0 +1,12 @@
+type
+
+GET /1/types/[team or user id]
+
+Required permissions: read
+Arguments: None
+Examples
+https://api.trello.com/1/types/exampleorg?key=[application_key]&token=[optional_auth_token]
+{
+  "type": "organization",
+  "id": "4efe2c2f2e1efe7a4c0002c9"
+}

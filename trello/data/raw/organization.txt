@@ -1,0 +1,1382 @@
+organization
+
+RESTful endpoints that point to organizations refer to the Trello concept of Teams.
+
+GET /1/organizations/[idOrg or name]
+
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+actions_entities (optional)
+Default: false
+Valid Values:
+true
+false
+actions_display (optional)
+Default: false
+Valid Values:
+true
+false
+actions_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+action_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+memberships (optional)
+Default: none
+Valid Values: all or a comma-separated list of:
+active
+admin
+deactivated
+me
+normal
+memberships_member (optional)
+Default: false
+Valid Values:
+true
+false
+memberships_member_fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+members (optional)
+Default: none
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+member_fields (optional)
+Default: avatarHash,fullName,initials,username,confirmed
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+member_activity (optional)
+Default: false
+Valid Values: true or false; works for premium organizations only.
+membersInvited (optional)
+Default: none
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+membersInvited_fields (optional)
+Default: avatarHash,initials,fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+pluginData (optional)
+Default: false
+Valid Values:
+true
+false
+boards (optional)
+Default: none
+Valid Values: all or a comma-separated list of:
+open - Returns all boards that are open.
+closed - Returns all boards that have been closed.
+members - Returns all boards that have visibility set to Private.
+organization - Returns all boards that have visibility set to Team.
+public - Returns all boards that have visibility set to Public.
+starred - Returns all boards that have been starred.
+board_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+board_actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+board_actions_entities (optional)
+Default: false
+Valid Values:
+true
+false
+board_actions_display (optional)
+Default: false
+Valid Values:
+true
+false
+board_actions_format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+board_actions_since (optional)
+Valid Values: A date, null or lastView
+board_actions_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+board_action_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+board_lists (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+board_pluginData (optional)
+Default: false
+Valid Values:
+true
+false
+paid_account (optional)
+Default: false
+Valid Values:
+true
+false
+fields (optional)
+Default: name,displayName,desc,descData,url,website,logoHash,products,powerUps
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+Examples
+https://api.trello.com/1/organizations/publicorg?members=all&member_fields=username,fullName&fields=name,desc&key=[application_key]&token=[optional_auth_token]
+{
+  "id": "4ee7e59ae582acdec8000291",
+  "name": "publicorg",
+  "desc": "This is a test organization",
+  "members": [{
+    "id": "4ee7df3ce582acdec80000b2",
+    "username": "alicetester",
+    "fullName": "Alice Tester"
+  }, {
+    "id": "4ee7df74e582acdec80000b6",
+    "username": "davidtester",
+    "fullName": "David Tester"
+  }, {
+    "id": "4ee7e2e1e582acdec8000112",
+    "username": "edtester",
+    "fullName": "Ed Tester"
+  }, {
+    "id": "514c6011b569140000000028",
+    "username": "inviteghost8",
+    "fullName": "Invite Ghost 8"
+  }]
+}
+GET /1/organizations/[idOrg or name]/[field]
+
+Arguments
+field (required)
+Valid Values: One of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+Examples
+https://api.trello.com/1/organizations/exampleorg/billableMemberCount?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": 1
+}
+https://api.trello.com/1/organizations/exampleorg/desc?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": "This is a sample organization"
+}
+https://api.trello.com/1/organizations/exampleorg/descData?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": null
+}
+https://api.trello.com/1/organizations/exampleorg/displayName?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": "Example Org"
+}
+https://api.trello.com/1/organizations/exampleorg/idBoards?key=[application_key]&token=[optional_auth_token]
+["4eea4ffc91e31d1746000046"]
+https://api.trello.com/1/organizations/exampleorg/invitations?key=[application_key]&token=[optional_auth_token]
+[]
+https://api.trello.com/1/organizations/example
+org/invited?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": false
+}
+https://api.trello.com/1/organizations/exampleorg/logoHash?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": null
+}
+https://api.trello.com/1/organizations/exampleorg/memberships?key=[application_key]&token=[optional_auth_token]
+[{
+  "id": "4efe2c2f2e1efe7a4c0002cd",
+  "idMember": "4ee7deffe582acdec80000ac",
+  "memberType": "admin",
+  "unconfirmed": false
+}]
+https://api.trello.com/1/organizations/exampleorg/name?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": "exampleorg"
+}
+https://api.trello.com/1/organizations/exampleorg/powerUps?key=[application_key]&token=[optional_auth_token]
+[]
+https://api.trello.com/1/organizations/exampleorg/prefs?key=[application_key]&token=[optional_auth_token]
+{
+  "permissionLevel": "public",
+  "orgInviteRestrict": [],
+  "externalMembersDisabled": false,
+  "associatedDomain": null,
+  "googleAppsVersion": 1,
+  "boardVisibilityRestrict": {
+    "private": "org",
+    "org": "org",
+    "public": "org"
+  }
+}
+https://api.trello.com/1/organizations/exampleorg/premiumFeatures?key=[application_key]&token=[optional_auth_token]
+[]
+https://api.trello.com/1/organizations/exampleorg/products?key=[application_key]&token=[optional_auth_token]
+[]
+https://api.trello.com/1/organizations/exampleorg/url?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": "https://trello.com/exampleorg"
+}
+https://api.trello.com/1/organizations/exampleorg/website?key=[application_key]&token=[optional_auth_token]
+{
+  "_value": "http://example.org"
+}
+GET /1/organizations/[idOrg or name]/actions
+
+Required permissions: read
+Arguments
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+display (optional)
+Default: false
+Valid Values:
+true
+false
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+since (optional)
+Valid Values: A date, null or lastView
+before (optional)
+Valid Values: A date, or null
+page (optional)
+Default: 0
+Valid Values: Page * limit must be less than 1000
+idModels (optional)
+Valid Values: Only return actions related to these model ids
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+Examples
+https://api.trello.com/1/organizations/exampleorg/actions?key=[application_key]&token=[optional_auth_token]
+[{
+  "id": "4efe2c2f2e1efe7a4c0002cb",
+  "data": {
+    "organization": {
+      "id": "4efe2c2f2e1efe7a4c0002c9",
+      "name": "Example Org"
+    }
+  },
+  "date": "2011-12-30T21:25:03.806Z",
+  "idMemberCreator": "4ee7deffe582acdec80000ac",
+  "type": "createOrganization",
+  "memberCreator": {
+    "id": "4ee7deffe582acdec80000ac",
+    "avatarHash": null,
+    "fullName": "Joe Tester",
+    "initials": "JT",
+    "username": "joetester"
+  }
+}]
+GET /1/organizations/[idOrg or name]/boards
+
+Required permissions: read
+Arguments
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+open - Returns all boards that are open.
+closed - Returns all boards that have been closed.
+members - Returns all boards that have visibility set to Private.
+organization - Returns all boards that have visibility set to Team.
+public - Returns all boards that have visibility set to Public.
+starred - Returns all boards that have been starred.
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+actions_entities (optional)
+Default: false
+Valid Values:
+true
+false
+actions_limit (optional)
+Default: 50
+Valid Values: a number from 0 to 1000
+actions_format (optional)
+Default: list
+Valid Values: One of:
+count
+list
+minimal
+actions_since (optional)
+Valid Values: A date, null or lastView
+action_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+memberships (optional)
+Default: none
+Valid Values: all or a comma-separated list of:
+active
+admin
+deactivated
+me
+normal
+organization (optional)
+Default: false
+Valid Values:
+true
+false
+organization_fields (optional)
+Default: name,displayName
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+lists (optional)
+Default: none
+Valid Values: One of:
+all
+closed
+none
+open
+Examples
+https://api.trello.com/1/organizations/exampleorg/boards?key=[application_key]&token=[optional_auth_token]
+[{
+  "id": "4eea4ffc91e31d1746000046",
+  "closed": false,
+  "dateLastActivity": null,
+  "dateLastView": null,
+  "desc": "This board is used in the API examples",
+  "descData": null,
+  "idOrganization": "4efe2c2f2e1efe7a4c0002c9",
+  "invitations": [],
+  "invited": false,
+  "labelNames": {
+    "green": "",
+    "yellow": "Low Priority",
+    "orange": "Medium Priority",
+    "red": "High Priority",
+    "purple": "",
+    "blue": "",
+    "sky": "",
+    "lime": "",
+    "pink": "",
+    "black": ""
+  },
+  "memberships": [{
+    "id": "4eea4ffc91e31d174600004d",
+    "idMember": "4ee7deffe582acdec80000ac",
+    "memberType": "admin",
+    "unconfirmed": false
+  }, {
+    "id": "4eea507991e31d17460000fc",
+    "idMember": "4ee7df1be582acdec80000ae",
+    "memberType": "normal",
+    "unconfirmed": false
+  }, {
+    "id": "4eea50bc91e31d174600016d",
+    "idMember": "4ee7df74e582acdec80000b6",
+    "memberType": "normal",
+    "unconfirmed": false
+  }],
+  "name": "Example Board",
+  "pinned": false,
+  "powerUps": [],
+  "prefs": {
+    "permissionLevel": "public",
+    "voting": "members",
+    "comments": "members",
+    "invitations": "members",
+    "selfJoin": true,
+    "cardCovers": true,
+    "calendarFeedEnabled": false,
+    "background": "blue",
+    "backgroundColor": "#0079BF",
+    "backgroundImage": null,
+    "backgroundImageScaled": null,
+    "backgroundTile": false,
+    "backgroundBrightness": "unknown",
+    "canBePublic": true,
+    "canBeOrg": true,
+    "canBePrivate": true,
+    "canInvite": true
+  },
+  "shortLink": "OXiBYZoj",
+  "shortUrl": "https://trello.com/b/OXiBYZoj",
+  "starred": null,
+  "subscribed": null,
+  "url": "https://trello.com/b/OXiBYZoj/example-board"
+}]
+GET /1/organizations/[idOrg or name]/boards/[filter]
+
+Arguments
+filter (required)
+Valid Values: all or a comma-separated list of:
+open - Returns all boards that are open.
+closed - Returns all boards that have been closed.
+members - Returns all boards that have visibility set to Private.
+organization - Returns all boards that have visibility set to Team.
+public - Returns all boards that have visibility set to Public.
+starred - Returns all boards that have been starred.
+GET /1/organizations/[idOrg or name]/deltas
+
+Required permissions: read
+Arguments
+tags (required)
+Valid Values: A valid tag for subscribing
+ixLastUpdate (required)
+Valid Values: a number from -1 to Infinity
+GET /1/organizations/[idOrg or name]/members
+
+Required permissions: read
+Arguments
+filter (optional)
+Default: all
+Valid Values: One of:
+admins
+all
+none
+normal
+owners
+fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType - Return values will be normal or ghost. A ghost member is an individual who has been invited to join a board but has not yet created a Trello account.
+products
+status
+url
+username
+activity (optional)
+Default: false
+Valid Values: true or false; works for premium organizations only.
+Examples
+https://api.trello.com/1/organizations/exampleorg/members?key=[application_key]&token=[optional_auth_token]
+[{
+  "id": "4ee7deffe582acdec80000ac",
+  "fullName": "Joe Tester",
+  "username": "joetester"
+}]
+https://api.trello.com/1/organizations/exampleorg/members?filter=admins&key=[application_key]&token=[optional_auth_token]
+[{
+  "id": "4ee7deffe582acdec80000ac",
+  "fullName": "Joe Tester",
+  "username": "joetester"
+}]
+GET /1/organizations/[idOrg or name]/members/[filter]
+
+Arguments
+filter (required)
+Valid Values: One of:
+admins
+all
+normal - Returns all members with a memberType of normal (excluding memberTypes of ghost.
+GET /1/organizations/[idOrg or name]/members/[idMember]/cards
+
+Required permissions: read
+Arguments
+actions (optional)
+Valid Values: all or a comma-separated list of:
+addAttachmentToCard
+addChecklistToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyCommentCard
+createBoard
+createCard
+createList
+createOrganization
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteOrganizationInvitation
+disablePowerUp
+emailCard
+enablePowerUp
+makeAdminOfBoard
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeMemberFromCard
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCard:closed
+updateCard:desc
+updateCard:idList
+updateCard:name
+updateCheckItemStateOnCard
+updateChecklist
+updateList
+updateList:closed
+updateList:name
+updateMember
+updateOrganization
+attachments (optional)
+Default: false
+Valid Values: A boolean value or "cover" for only card cover attachments
+attachment_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+bytes
+date
+edgeColor
+idMember
+isUpload
+mimeType
+name
+previews
+url
+members (optional)
+Default: false
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+checkItemStates (optional)
+Default: false
+Valid Values:
+true
+false
+checklists (optional)
+Default: none
+Valid Values: One of:
+all
+none
+board (optional)
+Default: false
+Valid Values:
+true
+false
+board_fields (optional)
+Default: name,desc,closed,idOrganization,pinned,url,prefs
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+list (optional)
+Default: false
+Valid Values:
+true
+false
+list_fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+filter (optional)
+Default: visible
+Valid Values: One of:
+all
+closed
+none
+open
+visible
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+idMember (required)
+Valid Values: An id, username, or organization name
+GET /1/organizations/[idOrg or name]/membersInvited
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/organizations/[idOrg or name]/membersInvited/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/organizations/[idOrg or name]/memberships
+
+Required permissions: read
+Arguments
+filter (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+active
+admin
+deactivated
+me
+normal
+member (optional)
+Default: false
+Valid Values:
+true
+false
+GET /1/organizations/[idOrg or name]/memberships/[idMembership]
+
+Required permissions: read
+Arguments
+idMembership (required)
+Valid Values: A membership document id
+member (optional)
+Default: false
+Valid Values:
+true
+false
+GET /1/organizations/[idOrg or name]/pluginData
+
+Required permissions: read
+Arguments: None
+GET /1/organizations/[idOrg or name]/tags
+
+Required permissions: read
+Arguments: None
+Returns a list of the organization's collections.
+
+Warning: This is an experimental resource and may change at any time without notice.
+
+PUT /1/organizations/[idOrg or name]
+
+Required permissions: read
+Arguments
+prefs/orgInviteRestrict (optional)
+Valid Values: An email address with optional expansion tokens
+prefs/externalMembersDisabled (optional)
+Valid Values:
+true
+false
+prefs/associatedDomain (optional)
+Valid Values: The google apps domain to link this org to.
+prefs/googleAppsVersion (optional)
+Valid Values: a number from 1 to 2
+prefs/boardVisibilityRestrict/private (optional)
+Valid Values: One of:
+admin
+none
+org
+prefs/boardVisibilityRestrict/org (optional)
+Valid Values: One of:
+admin
+none
+org
+prefs/boardVisibilityRestrict/public (optional)
+Valid Values: One of:
+admin
+none
+org
+name (optional)
+Valid Values: A string with a length of at least 3. Only lowercase letters, underscores, and numbers are allowed. Must be unique.
+displayName (optional)
+Valid Values: A string with a length of at least 1. Cannot begin or end with a space.
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+website (optional)
+Valid Values: A URL starting with http:// or https:// or null
+prefs/permissionLevel (optional)
+Valid Values: One of:
+private
+public
+PUT /1/organizations/[idOrg or name]/desc
+
+Required permissions: write, own
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/organizations/[idOrg or name]/displayName
+
+Required permissions: write, own
+Arguments
+value (required)
+Valid Values: A string with a length of at least 1. Cannot begin or end with a space.
+PUT /1/organizations/[idOrg or name]/members
+
+Required permissions: write
+Arguments
+email (required)
+Valid Values: An email address
+fullName (required)
+Valid Values: A string with a length of at least 1. Cannot begin or end with a space.
+type (optional)
+Default: normal
+Valid Values: One of:
+admin
+normal
+PUT /1/organizations/[idOrg or name]/members/[idMember]
+
+Required permissions: write
+Arguments
+idMember (required)
+Valid Values: An id, username, or organization name
+type (required)
+Valid Values: One of:
+admin
+normal
+PUT /1/organizations/[idOrg or name]/members/[idMember]/deactivated
+
+Required permissions: write, own, deactivated
+Arguments
+idMember (required)
+Valid Values: An id, username, or organization name
+value (required)
+Valid Values:
+true
+false
+PUT /1/organizations/[idOrg or name]/memberships/[idMembership]
+
+Required permissions: write
+Arguments
+idMembership (required)
+Valid Values: An id
+type (required)
+Valid Values: One of:
+admin
+normal
+member_fields (optional)
+Default: fullName,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+PUT /1/organizations/[idOrg or name]/name
+
+Required permissions: write, own
+Arguments
+value (required)
+Valid Values: A string with a length of at least 3. Only lowercase letters, underscores, and numbers are allowed. Must be unique.
+PUT /1/organizations/[idOrg or name]/prefs/associatedDomain
+
+Required permissions: write, own, googleApps
+Arguments
+value (required)
+Valid Values: The google apps domain to link this org to.
+PUT /1/organizations/[idOrg or name]/prefs/boardVisibilityRestrict/org
+
+Required permissions: write, own, restrictVis
+Arguments
+value (required)
+Valid Values: One of:
+admin
+none
+org
+PUT /1/organizations/[idOrg or name]/prefs/boardVisibilityRestrict/private
+
+Required permissions: write, own, restrictVis
+Arguments
+value (required)
+Valid Values: One of:
+admin
+none
+org
+PUT /1/organizations/[idOrg or name]/prefs/boardVisibilityRestrict/public
+
+Required permissions: write, own, restrictVis
+Arguments
+value (required)
+Valid Values: One of:
+admin
+none
+org
+PUT /1/organizations/[idOrg or name]/prefs/externalMembersDisabled
+
+Required permissions: write, own, disableExternalMembers
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/organizations/[idOrg or name]/prefs/googleAppsVersion
+
+Required permissions: write, own, googleApps
+Arguments
+value (required)
+Valid Values: a number from 1 to 2
+PUT /1/organizations/[idOrg or name]/prefs/orgInviteRestrict
+
+Required permissions: write, own, inviteOrg
+Arguments
+value (required)
+Valid Values: An email address with optional expansion tokens
+PUT /1/organizations/[idOrg or name]/prefs/permissionLevel
+
+Required permissions: write, own
+Arguments
+value (required)
+Valid Values: One of:
+private
+public
+PUT /1/organizations/[idOrg or name]/website
+
+Required permissions: write, own
+Arguments
+value (required)
+Valid Values: A URL starting with http:// or https:// or null
+POST /1/organizations
+
+Required permissions: write
+Arguments
+name (optional)
+Valid Values: a string with a length from 0 to 16384
+displayName (optional)
+Valid Values: A string with a length of at least 1. Cannot begin or end with a space.
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+website (optional)
+Valid Values: A URL starting with http:// or https:// or null
+POST /1/organizations/[idOrg or name]/logo
+
+Required permissions: own
+Arguments
+file (required)
+Valid Values: A file
+POST /1/organizations/[idOrg or name]/tags
+
+Required permissions: write
+Arguments
+name (required)
+Valid Values: A string containing the name of the collection.
+Warning: This is an experimental resource and may change at any time without notice.
+
+DELETE /1/organizations/[idOrg or name]
+
+Required permissions: write, own
+Arguments: None
+DELETE /1/organizations/[idOrg or name]/logo
+
+Required permissions: own
+Arguments: None
+DELETE /1/organizations/[idOrg or name]/members/[idMember]
+
+This will remove a member from your organization. See also DELETE /1/organizations/[idOrg or name]/members/[idMember]/all to remove this member from your organization boards.
+
+Required permissions: write
+Arguments
+idMember (required)
+Valid Values: An id, username, or organization name
+DELETE /1/organizations/[idOrg or name]/members/[idMember]/all
+
+This will remove a member from your organization AND remove the member from all organization boards.
+
+Required permissions: write, own, removal
+Arguments
+idMember (required)
+Valid Values: An id, username, or organization name
+DELETE /1/organizations/[idOrg or name]/prefs/associatedDomain
+
+Required permissions: write, own, googleApps
+Arguments: None
+DELETE /1/organizations/[idOrg or name]/prefs/orgInviteRestrict
+
+Required permissions: write, own, inviteOrg
+Arguments
+value (required)
+Valid Values: An email address with optional expansion tokens

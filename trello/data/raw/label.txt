@@ -1,0 +1,98 @@
+label
+
+GET /1/labels/[idLabel]
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+color
+idBoard
+name
+uses
+GET /1/labels/[idLabel]/board
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/labels/[idLabel]/board/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+PUT /1/labels/[idLabel]
+
+Required permissions: read
+Arguments
+name (optional)
+Valid Values: a string with a length from 0 to 16384
+color (optional)
+Valid Values: A valid label color or null
+PUT /1/labels/[idLabel]/color
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: A valid label color or null
+PUT /1/labels/[idLabel]/name
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+POST /1/labels
+
+Required permissions: write
+Arguments
+name (required)
+Valid Values: a string with a length from 0 to 16384
+color (required)
+Valid Values: A valid label color or null
+idBoard (required)
+Valid Values: An id
+DELETE /1/labels/[idLabel]
+
+Required permissions: write
+Arguments: None

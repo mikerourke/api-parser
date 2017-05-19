@@ -1,0 +1,649 @@
+action
+
+Actions are generated whenever an action occurs in Trello. For instance, when a user deletes a card, a deleteCard action is generated and includes information about the deleted card, the list the card was in, the board the card was on, the user that deleted the card, and the idObject of the action. Actions for Trello objects can be listed from nested action endpoints - e.g. the resource GET board/[board_id]/actions lists all of the actions for the given board. Additionally, data regarding individual action objects can be retrieved and updated using the resources listed below.
+
+Included at the bottom of this page are a list of all action types and action types that are not returned from nested resources.
+
+GET /1/actions/[idAction]
+
+Required permissions: read
+Arguments
+display (optional)
+Default: false
+Valid Values:
+true
+false
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+Examples
+GET https://api.trello.com/1/actions/560bf78ea40a4590ca3c5c7d&key=[application_key]&token=[optional_auth_token]
+
+{
+  "id": "560bf78ea40a4590ca3c5c7d",
+  "idMemberCreator": "556c8537a1928ba745504dd8",
+  "data": {
+    "list": {
+      "name": "Washington",
+      "id": "560bf48efe2771efe9b45997"
+    },
+    "board": {
+      "shortLink": "tBmYPSYe",
+      "name": "US National Parks",
+      "id": "560bf4298b3dda300c18d09c"
+    },
+    "card": {
+      "shortLink": "1UtQeVnQ",
+      "idShort": 53,
+      "id": "560bf587882bb89c3882294e",
+      "name": "Mount Rainier National Park"
+    },
+    "old": {
+      "name": "Mount Rainier National Park | MapQuest National Parks"
+    }
+  },
+  "type": "updateCard",
+  "date": "2015-09-30T14:54:06.281Z",
+  "memberCreator": {
+    "id": "556c8537a1928ba745504dd8",
+    "avatarHash": "0b48c7057767cca8f339109b27a064d7",
+    "fullName": "Matt Cowan",
+    "initials": "MC",
+    "username": "mattcowan"
+  }
+}
+GET https://api.trello.com//1/actions/560bf78ea40a4590ca3c5c7d?display=true&entities=true&key=[application_key]&token=[optional_auth_token]
+{
+  "id": "560bf78ea40a4590ca3c5c7d",
+  "idMemberCreator": "556c8537a1928ba745504dd8",
+  "data": {
+    "list": {
+      "name": "Washington",
+      "id": "560bf48efe2771efe9b45997"
+    },
+    "board": {
+      "shortLink": "tBmYPSYe",
+      "name": "US National Parks",
+      "id": "560bf4298b3dda300c18d09c"
+    },
+    "card": {
+      "shortLink": "1UtQeVnQ",
+      "idShort": 53,
+      "id": "560bf587882bb89c3882294e",
+      "name": "Mount Rainier National Park"
+    },
+    "old": {
+      "name": "Mount Rainier National Park | MapQuest National Parks"
+    }
+  },
+  "type": "updateCard",
+  "date": "2015-09-30T14:54:06.281Z",
+  "memberCreator": {
+    "id": "556c8537a1928ba745504dd8",
+    "avatarHash": "0b48c7057767cca8f339109b27a064d7",
+    "fullName": "Matt Cowan",
+    "initials": "MC",
+    "username": "mattcowan"
+  },
+  "entities": [
+    {
+      "type": "member",
+      "id": "556c8537a1928ba745504dd8",
+      "username": "mattcowan",
+    "text": "Matt Cowan"
+    },
+    {
+      "type": "text",
+      "text": "renamed"
+    },
+    {
+      "type": "card",
+      "id": "560bf587882bb89c3882294e",
+      "shortLink": "1UtQeVnQ",
+      "text": "Mount Rainier National Park"
+    },
+    {
+      "type": "text",
+      "text": "(from Mount Rainier National Park | MapQuest National Parks)"
+    }
+  ],
+  "display": {
+    "translationKey": "action_renamed_card",
+    "entities": {
+      "card": {
+        "type": "card",
+        "id": "560bf587882bb89c3882294e",
+        "shortLink": "1UtQeVnQ",
+        "text": "Mount Rainier National Park"
+      },
+      "name": {
+        "type": "text",
+        "text": "Mount Rainier National Park | MapQuest National Parks"
+      },
+      "memberCreator": {
+        "type": "member",
+        "id": "556c8537a1928ba745504dd8",
+        "username": "mattcowan",
+        "text": "Matt Cowan"
+      }
+    }
+  }
+}
+GET /1/actions/[idAction]/[field]
+
+Arguments
+field (required)
+Valid Values: One of:
+data
+date
+idMemberCreator
+type
+GET /1/actions/[idAction]/board
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/actions/[idAction]/board/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/actions/[idAction]/card
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/actions/[idAction]/card/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/actions/[idAction]/display
+
+Required permissions: read
+Arguments: None
+GET /1/actions/[idAction]/entities
+
+Required permissions: read
+Arguments: None
+Examples
+GET https://api.trello.com/1/actions/560bf78ea40a4590ca3c5c7d/entities
+[
+  {
+    "type": "member",
+    "id": "556c8537a1928ba745504dd8",
+    "username": "mattcowan",
+    "text": "Matt Cowan"
+  },
+  {
+    "type": "text",
+    "text": "renamed"
+  },
+  {
+    "type": "card",
+    "id": "560bf587882bb89c3882294e",
+    "shortLink": "1UtQeVnQ",
+    "text": "Mount Rainier National Park"
+  },
+  {
+    "type": "text",
+    "text": "(from Mount Rainier National Park | MapQuest National Parks)"
+  }
+]
+GET /1/actions/[idAction]/list
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/actions/[idAction]/list/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/actions/[idAction]/member
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/member/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/memberCreator
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/memberCreator/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/organization
+
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+GET /1/actions/[idAction]/organization/[field]
+
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+PUT /1/actions/[idAction]
+
+Required permissions: write
+Arguments
+text (optional)
+Valid Values: a string with a length from 1 to 16384
+You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment on the card.
+
+PUT /1/actions/[idAction]/text
+
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment on the card.
+
+DELETE /1/actions/[idAction]
+
+Required permissions: write
+Arguments: None
+You can only use DELETE on commentCard actions. Deleting a commentCard action will also delete the comment on the card. You can only delete a commentCard action if you are the one that created the comment, you have more permissions on the board than the person that created the comment, or the person that created the comment has deleted their account.
+
+Action Types
+
+Due to the number of actions that occur in Trello, nested action resources filter out specific action types. For example, changing the name of a checklistItem will trigger a webhook on the board and will POST an action of type updateCheckItem with the old and new name of the checklistItem. However, no nested actions resource will return action types of updateCheckItem: /cards/idCard/actions/, /boards/idBoard/actions/. However you can get that specific action instance via GET /actions/idAction/.
+
+All Action Types
+addAdminToBoard
+addAdminToOrganization
+addAttachmentToCard
+addBoardsPinnedToMember
+addChecklistToCard
+addLabelToCard
+addMemberToBoard
+addMemberToCard
+addMemberToOrganization
+addToOrganizationBoard
+commentCard
+convertToCardFromCheckItem
+copyBoard
+copyCard
+copyChecklist
+createLabel
+copyCommentCard
+createBoard
+createBoardInvitation
+createBoardPreference
+createCard
+createChecklist
+createList
+createOrganization
+createOrganizationInvitation
+deleteAttachmentFromCard
+deleteBoardInvitation
+deleteCard
+deleteCheckItem
+deleteLabel
+deleteOrganizationInvitation
+disablePlugin
+disablePowerUp
+emailCard
+enablePlugin
+enablePowerUp
+makeAdminOfBoard
+makeAdminOfOrganization
+makeNormalMemberOfBoard
+makeNormalMemberOfOrganization
+makeObserverOfBoard
+memberJoinedTrello
+moveCardFromBoard
+moveCardToBoard
+moveListFromBoard
+moveListToBoard
+removeAdminFromBoard
+removeAdminFromOrganization
+removeBoardsPinnedFromMember
+removeChecklistFromCard
+removeFromOrganizationBoard
+removeLabelFromCard
+removeMemberFromBoard
+removeMemberFromCard
+removeMemberFromOrganization
+unconfirmedBoardInvitation
+unconfirmedOrganizationInvitation
+updateBoard
+updateCard
+updateCheckItem
+updateCheckItemStateOnCard
+updateChecklist
+updateLabel
+updateList
+updateMember
+updateOrganization
+voteOnCard
+Excluded Action Types
+These actions will be sent to webhooks but are not included in nested action resource responses (e.g. GET board/[board_id]/actions).
+
+addAdminToBoard (Deprecated in favor of makeAdminOfBoard)
+addAdminToOrganization (Deprecated in favor of makeAdminOfOrganization)
+addBoardsPinnedToMember
+addLabelToCard
+copyChecklist
+createBoardInvitation
+createBoardPreference
+createCheckItem
+createChecklist
+createLabel
+createOrganizationInvitation
+deleteCheckItem
+deleteComment
+deleteLabel
+makeAdminOfOrganization
+removeAdminFromBoard (Deprecated in favor of makeNormalMemberOfBoard)
+removeAdminFromOrganization (Deprecated in favor of makeNormalMemberOfOrganization)
+removeBoardsPinnedFromMember
+removeLabelFromCard
+removeMemberFromBoard
+removeMemberFromOrganization
+updateCheckItem
+updateComment
+updateLabel
+voteOnCard

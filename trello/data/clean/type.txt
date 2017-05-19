@@ -1,0 +1,4 @@
+type
+GET /1/types/[team or user id]
+Required permissions: read
+Arguments: None

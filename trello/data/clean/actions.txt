@@ -1,0 +1,386 @@
+action
+Actions are generated whenever an action occurs in Trello. For instance, when a user deletes a card, a deleteCard action is generated and includes information about the deleted card, the list the card was in, the board the card was on, the user that deleted the card, and the idObject of the action. Actions for Trello objects can be listed from nested action endpoints - e.g. the resource GET board/[board_id]/actions lists all of the actions for the given board. Additionally, data regarding individual action objects can be retrieved and updated using the resources listed below.
+Included at the bottom of this page are a list of all action types and action types that are not returned from nested resources.
+GET /1/actions/[idAction]
+Required permissions: read
+Arguments
+display (optional)
+Default: false
+Valid Values:
+true
+false
+entities (optional)
+Default: false
+Valid Values:
+true
+false
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+data
+date
+idMemberCreator
+type
+member (optional)
+Default: true
+Valid Values:
+true
+false
+member_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+memberCreator (optional)
+Default: true
+Valid Values:
+true
+false
+memberCreator_fields (optional)
+Default: avatarHash,fullName,initials,username
+Valid Values: all or a comma-separated list of:
+avatarHash
+bio
+bioData
+confirmed
+fullName
+idPremOrgsAdmin
+initials
+memberType
+products
+status
+url
+username
+GET /1/actions/[idAction]/[field]
+Arguments
+field (required)
+Valid Values: One of:
+data
+date
+idMemberCreator
+type
+GET /1/actions/[idAction]/board
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/actions/[idAction]/board/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+dateLastActivity
+dateLastView
+desc
+descData
+idOrganization
+invitations
+invited
+labelNames
+memberships
+name
+pinned
+powerUps
+prefs
+shortLink
+shortUrl
+starred
+subscribed
+url
+GET /1/actions/[idAction]/card
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/actions/[idAction]/card/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+badges
+checkItemStates
+closed
+dateLastActivity
+desc
+descData
+due
+email
+idAttachmentCover
+idBoard
+idChecklists
+idLabels
+idList
+idMembers
+idMembersVoted
+idShort
+labels
+manualCoverAttachment
+name
+pos
+shortLink
+shortUrl
+subscribed
+url
+GET /1/actions/[idAction]/display
+Required permissions: read
+Arguments: None
+GET /1/actions/[idAction]/entities
+Required permissions: read
+Arguments: None
+GET /1/actions/[idAction]/list
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/actions/[idAction]/list/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+closed
+idBoard
+name
+pos
+subscribed
+GET /1/actions/[idAction]/member
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/member/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/memberCreator
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/memberCreator/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+avatarHash
+avatarSource
+bio
+bioData
+confirmed
+email
+fullName
+gravatarHash
+idBoards
+idBoardsPinned
+idOrganizations
+idPremOrgsAdmin
+initials
+loginTypes
+memberType
+oneTimeMessagesDismissed
+prefs
+premiumFeatures
+products
+status
+status
+trophies
+uploadedAvatarHash
+url
+username
+GET /1/actions/[idAction]/organization
+Required permissions: read
+Arguments
+fields (optional)
+Default: all
+Valid Values: all or a comma-separated list of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+GET /1/actions/[idAction]/organization/[field]
+Required permissions: read
+Arguments
+field (required)
+Valid Values: One of:
+billableMemberCount
+desc
+descData
+displayName
+idBoards
+invitations
+invited
+logoHash
+memberships
+name
+powerUps
+prefs
+premiumFeatures
+products
+url
+website
+PUT /1/actions/[idAction]
+Required permissions: write
+Arguments
+text (optional)
+Valid Values: a string with a length from 1 to 16384
+You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment on the card.
+PUT /1/actions/[idAction]/text
+Required permissions: write
+Arguments
+value (required)
+Valid Values: a string with a length from 1 to 16384
+You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment on the card.
+DELETE /1/actions/[idAction]
+Required permissions: write
+Arguments: None

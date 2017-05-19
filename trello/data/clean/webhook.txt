@@ -1,0 +1,71 @@
+webhook
+Webhooks should be placed on models such as Cards or Boards that you wish to monitor for changes. Upon creation, the destination you supply will be tested for validity (a 200 response to a HEAD request) before returning to you the ID of the newly created webhook.
+If the provided callback URL does not produce a response within 30 seconds, Trello will consider it an unsuccessful POST and try again. The webhook will retry 3 times before stopping.
+You can find a walkthrough of Trello's webhooks and how to use them here.
+GET /1/webhooks/[idWebhook]/
+Required permissions: read
+Arguments: None
+GET /1/webhooks/[idWebhook]/[field]
+Arguments
+field (required)
+Valid Values: One of:
+active
+callbackURL
+description
+idModel
+PUT /1/webhooks/[idWebhook]
+Required permissions: read
+Arguments
+description (optional)
+Valid Values: a string with a length from 0 to 16384
+callbackURL (optional)
+Valid Values: A valid URL that is reachable with a GET and POST request.
+idModel (optional)
+Valid Values: id of the model to be monitored
+active (optional)
+Valid Values:
+true
+false
+PUT /1/webhooks/
+Required permissions: read
+Arguments
+description (optional)
+Valid Values: a string with a length from 0 to 16384
+callbackURL (required)
+Valid Values: A valid URL that is reachable with a HEAD request
+idModel (required)
+Valid Values: id of the model that should be hooked
+PUT /1/webhooks/[idWebhook]/active
+Required permissions: read
+Arguments
+value (required)
+Valid Values:
+true
+false
+PUT /1/webhooks/[idWebhook]/callbackURL
+Required permissions: read
+Arguments
+value (required)
+Valid Values: A valid URL that is reachable with a HEAD request
+PUT /1/webhooks/[idWebhook]/description
+Required permissions: read
+Arguments
+value (required)
+Valid Values: a string with a length from 0 to 16384
+PUT /1/webhooks/[idWebhook]/idModel
+Required permissions: read
+Arguments
+value (required)
+Valid Values: id of the model to be monitored
+POST /1/webhooks
+Required permissions: read
+Arguments
+description (optional)
+Valid Values: a string with a length from 0 to 16384
+callbackURL (required)
+Valid Values: A valid URL that is reachable with a HEAD request
+idModel (required)
+Valid Values: id of the model that should be hooked
+DELETE /1/webhooks/[idWebhook]
+Required permissions: read
+Arguments: None
